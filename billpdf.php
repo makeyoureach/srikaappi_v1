@@ -133,7 +133,7 @@
     $pdf->Cell(15,16,'Tot Items: ',0,0,'C');
     // $pdf->SetFont('Arial','B',6);
     $pdf->Cell(10,16,$count,0,0,'L');
-    $pdf->SetFont('Arial','',6);
+    $pdf->SetFont('Arial','',6); 
     $pdf->Cell(18,16,'Tot Amt: ',0,0,'R');
     $pdf->SetFont('Arial','B',6);
     $pdf->Cell(10,16,$total.'.00',0,1,'L');

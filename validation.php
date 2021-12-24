@@ -2,7 +2,6 @@
 
     $uname=$_POST['username'];
     $pwd=$_POST['password'];
-     
     
     session_start();
 

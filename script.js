@@ -9,6 +9,44 @@
       var totalamount=0;
       var id=0;
       var index=0;
+
+      $("#print_bill").click(function(){
+
+        var doc =new jsPDF('p', 'mm', [85,(85+(itemsname.length*6))]);
+        doc.setFontType("normal");
+        doc.setFontSize(12);
+        doc.text(30,5,'SRI KAAPPI');
+        // doc.autoPrint();
+        // window.open(doc.output('bloburl'), '_blank');
+      
+        // All units are in the set measurement for the document
+        // This can be changed to "pt" (points), "mm" (Default), "cm", "in"
+        // 
+      //   doc.autoTable({  
+      //     html: '#billconent',  
+      //     startY: 70,  
+      //     theme: 'grid',  
+      //     columnStyles: {  
+      //         0: {  
+      //             cellWidth: 180,  
+      //         },  
+      //         1: {  
+      //             cellWidth: 180,  
+      //         },  
+      //         2: {  
+      //             cellWidth: 180,  
+      //         }  
+      //     },  
+      //     styles: {  
+      //         minCellHeight: 40  
+      //     }  
+      // })  
+      
+        doc.save('Generated.pdf');
+        doc.autoPrint();
+        window.open(doc.output('bloburl'), '_blank');
+
+    });
       
 
       //view table calculation
@@ -449,64 +487,64 @@
         
       //// recepit bill //////
 
-      $("#print_bill").click(function(){
+    //   $("#print_bill").click(function(){
         
-        // console.log("bill");
+    //     // console.log("bill");
         
-        $.ajax({
-          url:"ajax_content.php",
-          type:"post",
-          data:{
-            itemsname:itemsname,
-            itemsQuantity:itemsQuantity,
-            itemsAmount:itemsAmount,
-            itemsFrom:itemsFrom
-          },
-          dataType:"JSON",
-          success:function(res){
-            if(res){
-              window.location.href='billpdf.php';
-            }else{
-              alert("Failed Try Again");
-            }
-          }
-        });
+    //     $.ajax({
+    //       url:"ajax_content.php",
+    //       type:"post",
+    //       data:{
+    //         itemsname:itemsname,
+    //         itemsQuantity:itemsQuantity,
+    //         itemsAmount:itemsAmount,
+    //         itemsFrom:itemsFrom
+    //       },
+    //       dataType:"JSON",
+    //       success:function(res){
+    //         if(res){
+    //           window.location.href='billpdf.php';
+    //         }else{
+    //           alert("Failed Try Again");
+    //         }
+    //       }
+    //     });
 
-        // $.ajax({
-        //   url:"billpdf.php",
-        //   type:"post",
-        //   data:{
-        //     itemsname:itemsname,
-        //     itemsQuantity:itemsQuantity,
-        //     itemsAmount:itemsAmount
-        //   },
-        //   success:function(res){
-        //     if(res){
-        //       window.print(res.pdf);
-        //     }else{
-        //       alert("Failed Try Again");
-        //     }
-        //   }
-        // });
-        // window.location.href='billpdf.php';
+    //     // $.ajax({
+    //     //   url:"billpdf.php",
+    //     //   type:"post",
+    //     //   data:{
+    //     //     itemsname:itemsname,
+    //     //     itemsQuantity:itemsQuantity,
+    //     //     itemsAmount:itemsAmount
+    //     //   },
+    //     //   success:function(res){
+    //     //     if(res){
+    //     //       window.print(res.pdf);
+    //     //     }else{
+    //     //       alert("Failed Try Again");
+    //     //     }
+    //     //   }
+    //     // });
+    //     // window.location.href='billpdf.php';
         
-        // $.ajax({
-        //   url:"ajax_recepit.php",
-        //   type:"post",
-        //   success:function(res){
-        //     if(res){
-        //       $("#cur_bill").html(res);
-        //       // window.location.href='recepit.php';
+    //     // $.ajax({
+    //     //   url:"ajax_recepit.php",
+    //     //   type:"post",
+    //     //   success:function(res){
+    //     //     if(res){
+    //     //       $("#cur_bill").html(res);
+    //     //       // window.location.href='recepit.php';
               
-        //     }else{
-        //       // $("#print_bill").click(function(){
-        //       //   $("#staticBackdrop").modal();
-        //       // });
-        //     }
-        //   }
-        // });
+    //     //     }else{
+    //     //       // $("#print_bill").click(function(){
+    //     //       //   $("#staticBackdrop").modal();
+    //     //       // });
+    //     //     }
+    //     //   }
+    //     // });
 
-     });
+    //  });
 
          //// new-bill //////
 

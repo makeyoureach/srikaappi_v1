@@ -25,6 +25,13 @@ hr{
     margin-left: 5%;
     font-size: 3vh;
 }
+.sub-headings{
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(36, 0, 0);
+    margin: 30px;
+}
 .navbar_custom a h5{
     font-size: 2vh;
 }

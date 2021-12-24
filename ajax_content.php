@@ -30,8 +30,8 @@
         if (mysqli_num_rows($result) > 0) {
 
             while($row = mysqli_fetch_assoc($result)) {
-            $billno=$row["billnumber"];
-            $billno++;
+                $billno=$row["billnumber"];
+                $billno++;
             }
             
         }else{
@@ -44,8 +44,7 @@
             $sql="Insert into selected_items (items,quantity,amount) values('$itemsname[$i]','$itemsQuantity[$i]','$itemsAmount[$i]')";
             $result = mysqli_query($con, $sql);
         }
-        
-        
+
         for($i=0;$i<count($itemsAmount);$i++){
             $total=$total+$itemsAmount[$i];
         }

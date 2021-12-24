@@ -33,7 +33,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src='script.js'></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script> 
+<script src='script.js'></script>   
     <script src='jquery.min.js'></script>   
     
 <title>Sri Kaappi</title>
@@ -351,11 +353,11 @@
                 
    
                 <!--Bill bar-->
-                <div class="col-md-5 col-lg-4 bill-bar-main">
+                <div class="col-md-5 col-lg-4 bill-bar-main" id='billauto'>
                         
                         <div class="bill-container">
                              <div class="bill-bar table-responsive table-sm">
-                                 <table class="table">
+                                 <table class="table" >
                                 <thead>
                                     <tr>
                                     <th scope="col">No.</th>
@@ -434,6 +436,23 @@
             </div> -->
                 
         </section>
+
+        <div style="display: none;"  id='billconent'>
+            
+            <table id='billconent'>
+                <th>
+                    <td>Items</td>
+                    <td>Qty</td>
+                    <td>Amt</td>
+                </th>
+                <tr>
+                    <td>Filter Coffee</td>
+                    <td>3</td>
+                    <td>60</td>
+                </tr>
+                
+            </table>
+        </div>
         
     </section>
 </body>

@@ -37,12 +37,12 @@
         }else{
             $billno=1;
         }
-        $date = date('Y-m-d');
+        $date = date('Y-m-d H:i:s');
         for($i=0;$i<count($itemsAmount);$i++){
             
             // $sql="SELECT * from beverages where items='$itemsname[$i]' and itemsFrom='$itemsFrom[$i]'";
 
-            $sql="Insert into sale_items (billno,items,quantity,amount,itemsfrom,billdate,buyquantity,sellquantity) values('$billno','$itemsname[$i]','$itemsQuantity[$i]','$itemsAmount[$i]','$itemsFrom[$i]','$date',0,0)";
+            $sql="Insert into sale_items (billno,items,quantity,amount,itemsfrom,billdate) values('$billno','$itemsname[$i]','$itemsQuantity[$i]','$itemsAmount[$i]','$itemsFrom[$i]','$date')";
             $result = mysqli_query($con, $sql);
   
             $updatefor=$itemsFrom[$i];

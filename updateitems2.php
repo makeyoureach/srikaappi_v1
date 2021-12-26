@@ -32,7 +32,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src='script.js'></script>   
+    <script src='script2.js'></script>   
     <script src='jquery.min.js'></script>   
     
 <title>Sri Kaappi</title>
@@ -44,7 +44,7 @@
             <nav class="navbar navbar_custom shadow-lg">
             <a class="navbar-brand" href="#">
           <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
-            <h3>SRI KAAPPI 1</h3><h5 style="margin-left: 10px;">Shop 1</h5>
+            <h3>SRI KAAPPI 1</h3><h5 style="margin-left: 10px;">Shop 2</h5>
             </a>
                 
             <div class="btn-group dropleft">
@@ -54,10 +54,10 @@
                  ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button" onclick="window.location.href='shop1.php'">Shop 1</button>
-                <button class="dropdown-item" type="button" onclick="window.location.href='bitesrecords1.php'">Bites Page</button>
-                <button class="dropdown-item" type="button" onclick="window.location.href='view1.php'">Sales Report</button>
-                <button class="dropdown-item" type="button" onclick="window.location.href='receiptreport1.php'">Receipt History</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='shop2.php'">Shop 2</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='bitesrecords2.php'">Bites Page</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='view2.php'">Sales Report</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='receiptreport2.php'">Receipt History</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='logout.php'">Log Out</button>
             </div>
             </div>
@@ -118,7 +118,7 @@
                             $tamilname=array();
                             $c=0;
 
-                            $sql="select * from beverages";
+                            $sql="select * from beverages_1";
                             $res=$con->query($sql);
                             while($row=$res->fetch_assoc()){
 
@@ -177,7 +177,7 @@
                             $tamilname=array();
                             $c=0;
 
-                            $sql="select * from nonbeverages";
+                            $sql="select * from nonbeverages_1";
                             $res=$con->query($sql);
                             while($row=$res->fetch_assoc()){
 
@@ -235,7 +235,7 @@
                             $tamilname=array();
                             $c=0;
 
-                            $sql="select * from bites";
+                            $sql="select * from bites_1";
                             $res=$con->query($sql);
                             while($row=$res->fetch_assoc()){
 
@@ -293,7 +293,7 @@
                             $tamilname=array();
                             $c=0;
 
-                            $sql="select * from juices";
+                            $sql="select * from juices_1";
                             $res=$con->query($sql);
                             while($row=$res->fetch_assoc()){
 
@@ -351,7 +351,7 @@
                             $tamilname=array();
                             $c=0;
 
-                            $sql="select * from parcel";
+                            $sql="select * from parcel_1";
                             $res=$con->query($sql);
                             while($row=$res->fetch_assoc()){
 

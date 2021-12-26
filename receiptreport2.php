@@ -122,7 +122,7 @@
                                 if(!$con){
                                     die("Connection error ".mysqli_connect_error());
                                 }
-                                $sql="select * from sri_recepit order by billnumber desc";
+                                $sql="select * from sri_recepit_1 order by billnumber desc";
                                 $res=$con->query($sql);
                                 $count=1;
                                 while($row=$res->fetch_assoc()){
@@ -149,7 +149,7 @@
                                 if(!$con){
                                     die("Connection error ".mysqli_connect_error());
                                 }
-                                $sql="select * from sri_recepit order by billnumber desc";
+                                $sql="select * from sri_recepit_1 order by billnumber desc";
                                 $res=$con->query($sql);
                                 $total=0;
                                 while($row=$res->fetch_assoc()){

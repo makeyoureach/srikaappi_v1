@@ -1,15 +1,12 @@
 <?php
     session_start();
-    if(isset($_SESSION['uname'])){
-        // if($_SESSION['uname']=='admin'){
 
-        // }else{
-        //     echo "<script>location.href='shop1.php'</script>";
-        // }
+    if(isset($_SESSION['uname'])){
         // echo "<a"
     }else{
         echo "<script>location.href='login.php'</script>";
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -42,22 +39,18 @@
         <section>
         <nav class="navbar navbar_custom shadow-lg">
             <a class="navbar-brand" href="#">
-          <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
-            <h3>SRI KAAPPI 1</h3><h5 style="margin-left: 10px;">Shop 1</h5>
+            <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
+            <h3>SRI KAAPPI</h3>
             </a>
-                
+            <div>
             <div class="btn-group dropleft">
-            <button type="button" style="text-transform: capitalize;" class="btn btn-secondary btn-sm dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php
-                echo $_SESSION['uname'];
-                 ?>
+            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button class="dropdown-item" type="button" onclick="window.location.href='shop1.php'">Shop 1</button>
-
-                <button class="dropdown-item" type="button" onclick="window.location.href='updateitems1.php'">Updation</button>
-                <button class="dropdown-item" type="button" onclick="window.location.href='bitesrecords1.php'">Bites Page</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='view1.php'">Sales Report</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='updateitems1.php'">Updation</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='logout.php'">Log Out</button>
             </div>
             </div>

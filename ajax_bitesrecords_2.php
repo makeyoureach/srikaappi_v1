@@ -14,7 +14,7 @@
             die("Connection error ".mysqli_connect_error());
         }
 
-        $sql ="UPDATE bites SET buyquantity=$updatebuy WHERE id=$updateid";
+        $sql ="UPDATE bites_1 SET buyquantity=$updatebuy WHERE id=$updateid";
         $result=mysqli_query($con,$sql);
         
         if($result){

@@ -16,7 +16,7 @@
             $sql="select * from login";
             $res=$con->query($sql);
 
-            while($row=$res->fetch_assoc()){
+        while($row=$res->fetch_assoc()){
             if($row["username"]==$uname && $row["password"]==$pwd){
                 $count=1;
             }

@@ -1,16 +1,16 @@
 <?php
-    // session_start();
+    session_start();
     // $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
     // if(!$con){
     //     die("Connection error ".mysqli_connect_error()); 
     // }
     // $sql = "TRUNCATE TABLE sri_beverages";
     // $result=mysqli_query($con,$sql);
-    // if(isset($_SESSION['uname'])){
-    //     // echo "<a"
-    // }else{
-    //     echo "<script>location.href='login.php'</script>";
-    // }
+    if(isset($_SESSION['uname'])){
+        // echo "<a"
+    }else{
+        echo "<script>location.href='login.php'</script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src='script.js'></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+<script src='script2.js'></script>   
     <script src='jquery.min.js'></script>   
     
 <title>Sri Kaappi</title>
@@ -45,15 +47,20 @@
         <nav class="navbar navbar_custom shadow-lg">
             <a class="navbar-brand" href="#">
           <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
-            <h3>SRI KAAPPI</h3>
+            <h3>SRI KAAPPI 1</h3><h5 style="margin-left: 10px;">Shop 2</h5>
             </a>
-            <div>
+                
             <div class="btn-group dropleft">
-            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                More
+            <button type="button" style="text-transform: capitalize;" class="btn btn-secondary btn-sm dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php
+                echo $_SESSION['uname'];
+                 ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button" onclick="window.location.href='receiptreport.php'">Receipt History</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='updateitems2.php'">Updation</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='bitesrecords2.php'">Bites Page</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='view2.php'">Sales Report</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='receiptreport2.php'">Receipt History</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='logout.php'">Log Out</button>
             </div>
             </div>
@@ -90,10 +97,31 @@
                 <div class="card-container " id='container-control1'>
                     
                     <?php
-                            $beveragesName=array('Filter Coffee','Tea','Ginger Tea','Sukku Coffee','Sukku Tea','Boost','Horlicks','Milk','Honey Milk','Ginger Milk','Sukku Milk','Gulkand Milk','Kova Milk','Palm candy Milk');
-                            $tamilName=array('ஃபில்டர் காபி','டீ','இஞ்சி டீ','சுக்கு காபி','சுக்கு டீ','பூஸ்ட்','ஹார்லிக்ஸ்','பால்','தேன் பால்','இஞ்சிப் பால்','சுக்குப் பால்','குல்கந்துப் பால்','பால்கோவா பால்','பனங்கற்கண்டுப்
-                            பால்');
-                            $beveragesAmount=array(20,10,15,25,20,20,20,15,20,20,20,25,30,30);
+                            // $beveragesName=array('Filter Coffee','Tea','Ginger Tea','Sukku Coffee','Sukku Tea','Boost','Horlicks','Milk','Honey Milk','Ginger Milk','Sukku Milk','Gulkand Milk','Kova Milk','Palm candy Milk');
+                            // $tamilName=array('ஃபில்டர் காபி','டீ','இஞ்சி டீ','சுக்கு காபி','சுக்கு டீ','பூஸ்ட்','ஹார்லிக்ஸ்','பால்','தேன் பால்','இஞ்சிப் பால்','சுக்குப் பால்','குல்கந்துப் பால்','பால்கோவா பால்','பனங்கற்கண்டுப்
+                            // பால்');
+                            // $beveragesAmount=array(20,10,15,25,20,20,20,15,20,20,20,25,30,30);
+
+                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            if(!$con){
+                                die("Connection error ".mysqli_connect_error());
+                            }
+                            
+                            $beveragesName=array();
+                            $beveragesAmount=array();
+                            $tamilName=array();
+                            $c=0;
+
+                            $sql="select * from beverages_1";
+                            $res=$con->query($sql);
+                            while($row=$res->fetch_assoc()){
+
+                                $beveragesName[$c]=$row["itemsname"];
+                                $beveragesAmount[$c]=$row["amount"];
+                                $tamilName[$c]=$row["tamilname"];
+                                $c++;
+                            }
+
                             $img=1;
                             $index=1;
                             for($c = 0; $c < count($beveragesName); $c++)
@@ -102,13 +130,13 @@
                                 <div class=''>
                                 <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/beverage/".$index.".jpg' class='card-img-top'></a>
                                  <div>
+                                     <input type='hidden' id='selectfrom' value='beverages' />
                                      <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
                                      <input type='hidden' id='beveragesName' value='".$beveragesName[$c]."' />
                                      <input type='hidden' id='tamilName' value='".$tamilName[$c]."' />
                                      <h5 class='card-title'>".$beveragesName[$c]."<br/><small>(".$tamilName[$c].")</small></h5>
                                  </div>
                                 </div>
-                                 
                              </div>";
                              $index++;
                             $img++;
@@ -121,9 +149,30 @@
                 <div class="view-content without-beverage" id='container-control2'>
                     
                     <?php
-                            $beveragesName=array('Filter Coffee','Tea','Ginger Tea','Sukku Coffee','Sukku Tea','Honey Lemon Tea','Ginger Lemon Tea','Green Tea');
-                            $beveragesAmount=array(15,10,15,25,20,20,20,20);
-                            $tamilName=array('ஃபில்டர் காபி','டீ','இஞ்சி டீ','சுக்கு காபி','சுக்கு டீ','ஹனி லெமன் டீ','இஞ்சி லெமன் டீ','கிரீன் டீ');
+                            // $beveragesName=array('Filter Coffee','Tea','Ginger Tea','Sukku Coffee','Sukku Tea','Honey Lemon Tea','Ginger Lemon Tea','Green Tea');
+                            // $beveragesAmount=array(15,10,15,25,20,20,20,20);
+                            // $tamilName=array('ஃபில்டர் காபி','டீ','இஞ்சி டீ','சுக்கு காபி','சுக்கு டீ','ஹனி லெமன் டீ','இஞ்சி லெமன் டீ','கிரீன் டீ');
+                            
+                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            if(!$con){
+                                die("Connection error ".mysqli_connect_error());
+                            }
+                            
+                            $beveragesName=array();
+                            $beveragesAmount=array();
+                            $tamilName=array();
+                            $c=0;
+
+                            $sql="select * from nonbeverages_1";
+                            $res=$con->query($sql);
+                            while($row=$res->fetch_assoc()){
+
+                                $beveragesName[$c]=$row["itemsname"];
+                                $beveragesAmount[$c]=$row["amount"];
+                                $tamilName[$c]=$row["tamilname"];
+                                $c++;
+                            }
+
                             $img=1;
                             $index=1;
                             for($c = 0; $c < count($beveragesName); $c++)
@@ -132,6 +181,7 @@
                                 <div class='card_image'>
                                 <a type='button' class='pic-btn' id='card-pic'><img src='items/withoutmilk/".$index.".jpg' class='card-img-top'></a>
                                  <div>
+                                 <input type='hidden' id='selectfrom' value='nonbeverages' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
                                  <input type='hidden' id='beveragesName' value='".$beveragesName[$c]."' />
                                  <input type='hidden' id='tamilName' value='".$tamilName[$c]."' />
@@ -151,9 +201,30 @@
                 <div class="view-content bites" id='container-control3'>
                     
                     <?php
-                            $beveragesName=array('Butter Cookies','Onion Samosa','Methu Vadai','Paruppu Vadai','Masala Bonda','Bajji','Spinach Vadai','Vazhaipoo Vadai','Pazham Pori','Suyyam','Coconut Ball','Kara Kozhukattai','Thattu Vadai','Kappa Bonda','Pakkoda','Kappa Fry','Finger Millet Sprouted','Bajra Sprouted','Peanut','Channa','Channa Sprouted','Green Gram Sprouted','Navadhaniya Sundal','Maothagam','Banana Leaf Adai','Paal Kozhukattai','Milk Kova','Sambar Vadai','Curd Vadai','Rasa Vadai','Kara Paniyaram','Sweet Paniyaram','Fore Milk');
-                            $beveragesAmount=array(5,10,8,8,8,8,10,10,10,10,12,12,10,10,15,15,15,15,15,15,20,20,20,15,20,20,20,20,20,20,25,30,30);
-                            $tamilName=array('பிஸ்கட்','ஆனியன் சமோசா','உளுந்து வடை','பருப்பு வடை','உருளைக்கிழங்கு போண்டா','பஜ்ஜி','கீரை வடை','வாழைப்பூ வடை','பழம் பொரி','சுய்யம்','தேங்காய் உருண்டை','காரக் கொழுக்கட்டை','தட்டு வடை','கப்ப போண்டா','பக்கோடா','கப்பக்கிழங்கு ஃப்ரை','முளைக்கட்டிய ராகி','முளைக்கட்டிய கம்பு','நிலக்கடலை','சுண்டல்','முளைகட்டிய சுண்டல்','முளைகட்டிய பச்சை   பயறு','இனிப்பு கொழுக்கட்டை','இலை அடை','பால் கொழுக்கட்டை','பால் கோவா','சாம்பார் வடை','சாம்பார் வடை','தயிர் வடை','ரசவடை','காரப்பணியாரம்','இனிப்புப் பணியாரம்','சீம்பால்');
+                            // $beveragesName=array('Butter Cookies','Onion Samosa','Methu Vadai','Paruppu Vadai','Masala Bonda','Bajji','Spinach Vadai','Vazhaipoo Vadai','Pazham Pori','Suyyam','Coconut Ball','Kara Kozhukattai','Thattu Vadai','Kappa Bonda','Pakkoda','Kappa Fry','Finger Millet Sprouted','Bajra Sprouted','Peanut','Channa','Channa Sprouted','Green Gram Sprouted','Navadhaniya Sundal','Maothagam','Banana Leaf Adai','Paal Kozhukattai','Milk Kova','Sambar Vadai','Curd Vadai','Rasa Vadai','Kara Paniyaram','Sweet Paniyaram','Fore Milk');
+                            // $beveragesAmount=array(5,10,8,8,8,8,10,10,10,10,12,12,10,10,15,15,15,15,15,15,20,20,20,15,20,20,20,20,20,20,25,30,30);
+                            // $tamilName=array('பிஸ்கட்','ஆனியன் சமோசா','உளுந்து வடை','பருப்பு வடை','உருளைக்கிழங்கு போண்டா','பஜ்ஜி','கீரை வடை','வாழைப்பூ வடை','பழம் பொரி','சுய்யம்','தேங்காய் உருண்டை','காரக் கொழுக்கட்டை','தட்டு வடை','கப்ப போண்டா','பக்கோடா','கப்பக்கிழங்கு ஃப்ரை','முளைக்கட்டிய ராகி','முளைக்கட்டிய கம்பு','நிலக்கடலை','சுண்டல்','முளைகட்டிய சுண்டல்','முளைகட்டிய பச்சை   பயறு','இனிப்பு கொழுக்கட்டை','இலை அடை','பால் கொழுக்கட்டை','பால் கோவா','சாம்பார் வடை','சாம்பார் வடை','தயிர் வடை','ரசவடை','காரப்பணியாரம்','இனிப்புப் பணியாரம்','சீம்பால்');
+                            
+                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            if(!$con){
+                                die("Connection error ".mysqli_connect_error());
+                            }
+                            
+                            $beveragesName=array();
+                            $beveragesAmount=array();
+                            $tamilName=array();
+                            $c=0;
+
+                            $sql="select * from bites_1";
+                            $res=$con->query($sql);
+                            while($row=$res->fetch_assoc()){
+
+                                $beveragesName[$c]=$row["itemsname"];
+                                $beveragesAmount[$c]=$row["amount"];
+                                $tamilName[$c]=$row["tamilname"];
+                                $c++;
+                            }
+
                             $img=1;
                             $index=1;
                             for($c = 0; $c < count($beveragesName); $c++)
@@ -162,6 +233,7 @@
                                 <div class='card_image'>
                                 <a type='button' class='pic-btn shadow' id='card-pic'><img src='items/bites/".$index.".jpg' class='card-img-top'></a>
                                  <div>
+                                 <input type='hidden' id='selectfrom' value='bites' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
                                  <input type='hidden' id='beveragesName' value='".$beveragesName[$c]."' />
                                  <input type='hidden' id='tamilName' value='".$tamilName[$c]."' />
@@ -181,10 +253,31 @@
                 <div class="view-content juice" id='container-control4'>
                     
                     <?php
-                            $beveragesName=array('Ice Apple Milk','Avil Milk','Red Guava','Italian Grape','ABC Juice','Dates Milk','Rose Milk','Lassi');
-                            $beveragesAmount=array(40,40,40,40,40,40,35,30);
+                            // $beveragesName=array('Ice Apple Milk','Avil Milk','Red Guava','Italian Grape','ABC Juice','Dates Milk','Rose Milk','Lassi');
+                            // $beveragesAmount=array(40,40,40,40,40,40,35,30);
+
+                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            if(!$con){
+                                die("Connection error ".mysqli_connect_error());
+                            }
+                            
+                            $beveragesName=array();
+                            $beveragesAmount=array();
+                            $tamilName=array();
+                            $c=0;
+
+                            $sql="select * from juices_1";
+                            $res=$con->query($sql);
+                            while($row=$res->fetch_assoc()){
+
+                                $beveragesName[$c]=$row["itemsname"];
+                                $beveragesAmount[$c]=$row["amount"];
+                                $tamilName[$c]=$row["tamilname"];
+                                $c++;
+                            }
+
                             $img=1;
-                            $tamilName=array('நுங்குப் பால்','அவுல் பால்','சிவப்பு கொய்யா','இத்தாலிய திராட்சை','Abc ஜூஸ்','பேரீச்சைப் பால்','ரோஸ் மில்க்','லெஸி');
+                            // $tamilName=array('நுங்குப் பால்','அவுல் பால்','சிவப்பு கொய்யா','இத்தாலிய திராட்சை','Abc ஜூஸ்','பேரீச்சைப் பால்','ரோஸ் மில்க்','லெஸி');
                             $index=1;
                             for($c = 0; $c < count($beveragesName); $c++)
 	                        {
@@ -192,6 +285,7 @@
                                 <div class='card_image'>
                                 <a type='button' class='pic-btn' id='card-pic'><img src='items/juices/".$index.".jpg' class='card-img-top'></a>
                                  <div>
+                                 <input type='hidden' id='selectfrom' value='juices' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
                                  <input type='hidden' id='beveragesName' value='".$beveragesName[$c]."' />
                                  <input type='hidden' id='tamilName' value='".$tamilName[$c]."' />
@@ -211,10 +305,31 @@
                 <div class="view-content parcel" id='container-control5'>
                     
                     <?php
-                            $beveragesName=array('Filter Coffee','Tea','Ginger Tea','Sukku Coffee','Sukku Tea','Milk','Honey Milk','Ginger Milk','Sukku Milk','Gulkand Milk','Kova Milk','Palam Candy Milk','Honey Lemon Tea','Ginger Lemon Tea','Green Tea','Kappa Fry','Green Gram Sprouted','Channa Sprouted','Peanet','Channa','Finger Millet Sprouted','Bajra Sprouted','Navadhaniya Sundal','Sambar Vadai','Curd Vadi','Rasa Vadi','Coconut Sprouted','Kara Paniyaram','Sweet Paniyaram','Fore Milk');
-                            $beveragesAmount=array(25,15,20,30,25,15,25,25,25,30,35,35,25,25,20,20,25,25,20,20,20,20,25,25,25,25,50,30,35,35);
+                            // $beveragesName=array('Filter Coffee','Tea','Ginger Tea','Sukku Coffee','Sukku Tea','Milk','Honey Milk','Ginger Milk','Sukku Milk','Gulkand Milk','Kova Milk','Palam Candy Milk','Honey Lemon Tea','Ginger Lemon Tea','Green Tea','Kappa Fry','Green Gram Sprouted','Channa Sprouted','Peanet','Channa','Finger Millet Sprouted','Bajra Sprouted','Navadhaniya Sundal','Sambar Vadai','Curd Vadi','Rasa Vadi','Coconut Sprouted','Kara Paniyaram','Sweet Paniyaram','Fore Milk');
+                            // $beveragesAmount=array(25,15,20,30,25,15,25,25,25,30,35,35,25,25,20,20,25,25,20,20,20,20,25,25,25,25,50,30,35,35);
+                            
+                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            if(!$con){
+                                die("Connection error ".mysqli_connect_error());
+                            }
+                            
+                            $beveragesName=array();
+                            $beveragesAmount=array();
+                            $tamilName=array();
+                            $c=0;
+
+                            $sql="select * from parcel_1";
+                            $res=$con->query($sql);
+                            while($row=$res->fetch_assoc()){
+
+                                $beveragesName[$c]=$row["itemsname"];
+                                $beveragesAmount[$c]=$row["amount"];
+                                $tamilName[$c]=$row["tamilname"];
+                                $c++;
+                            }
+
                             $img=1;
-                            $tamilName=array('ஃபில்டர் காபி','டீ','இஞ்சி டீ','சுக்கு காபி','சுக்கு டீ','பால்','தேன் பால்','இஞ்சிப் பால்','சுக்குப் பால்','குல்கந்துப் பால்','பால்கோவா பால்','பனங்கற்கண்டுப் பால்','ஹனி லெமன் டீ','இஞ்சி லெமன் டீ','கிரீன் டீ','கப்ப ஃப்ரை','முளைக்கட்டிய பச்சை பயறு','முளைகட்டிய சுண்டல்','நிலக்கடலை','சுண்டல்','முளைக்கட்டிய ராகி','முளைக்கட்டிய கம்பு','நவதானிய சுண்டல்','சாம்பார் வடை','தயிர் வடை','ரச வடை','தேங்காய் சீம்பு','காரப்பணியாரம்','இனிப்புப் பணியாரம்','சீம்பால்');
+                            // $tamilName=array('ஃபில்டர் காபி','டீ','இஞ்சி டீ','சுக்கு காபி','சுக்கு டீ','பால்','தேன் பால்','இஞ்சிப் பால்','சுக்குப் பால்','குல்கந்துப் பால்','பால்கோவா பால்','பனங்கற்கண்டுப் பால்','ஹனி லெமன் டீ','இஞ்சி லெமன் டீ','கிரீன் டீ','கப்ப ஃப்ரை','முளைக்கட்டிய பச்சை பயறு','முளைகட்டிய சுண்டல்','நிலக்கடலை','சுண்டல்','முளைக்கட்டிய ராகி','முளைக்கட்டிய கம்பு','நவதானிய சுண்டல்','சாம்பார் வடை','தயிர் வடை','ரச வடை','தேங்காய் சீம்பு','காரப்பணியாரம்','இனிப்புப் பணியாரம்','சீம்பால்');
                             $index=1;
                             for($c = 0; $c < count($beveragesName); $c++)
 	                        {
@@ -222,6 +337,7 @@
                                 <div class='card_image'>
                                 <a type='button' class='pic-btn' id='card-pic'><img src='items/parcel/".$index.".jpg' class='card-img-top'></a>
                                  <div>
+                                 <input type='hidden' id='selectfrom' value='parcel' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
                                  <input type='hidden' id='beveragesName' value='".$beveragesName[$c]."(p)' />
                                  <input type='hidden' id='tamilName' value='".$tamilName[$c]."' />
@@ -240,11 +356,11 @@
                 
    
                 <!--Bill bar-->
-                <div class="col-md-5 col-lg-4 bill-bar-main">
+                <div class="col-md-5 col-lg-4 bill-bar-main" id='billauto'>
                         
                         <div class="bill-container">
                              <div class="bill-bar table-responsive table-sm">
-                                 <table class="table">
+                                 <table class="table" >
                                 <thead>
                                     <tr>
                                     <th scope="col">No.</th>
@@ -323,6 +439,23 @@
             </div> -->
                 
         </section>
+
+        <div style="display: none;"  id='billconent'>
+            
+            <table id='billconent'>
+                <th>
+                    <td>Items</td>
+                    <td>Qty</td>
+                    <td>Amt</td>
+                </th>
+                <tr>
+                    <td>Filter Coffee</td>
+                    <td>3</td>
+                    <td>60</td>
+                </tr>
+                
+            </table>
+        </div>
         
     </section>
 </body>

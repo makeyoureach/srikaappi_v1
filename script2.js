@@ -13,7 +13,7 @@
       $("#print_bill").click(function(){
         
         $.ajax({
-          url:"ajax_content.php",
+          url:"ajax_content_2.php",
           type:"post",
           data:{
             itemsname:itemsname,
@@ -32,7 +32,7 @@
         });
 
         $.ajax({
-          url:"ajax_billnumber.php",
+          url:"ajax_billnumber_2.php",
           type:"post",
           data:{
           },
@@ -62,7 +62,7 @@
         doc.setFontSize(10);
         doc.text(18,21,'THE ROYAL TASTE OF KOVAI');
         doc.setFontSize(9);
-        doc.text(3,28,'118 RAJA STREET, KK PLAK, COIMBATORE 641001');
+        doc.text(3,28,'800 RAJA STREET, KK PLAK, COIMBATORE 641001');
         doc.setFontSize(9);
         doc.text(37,35,'CASH BILL');
         doc.text(8,40,'Bill no: '+billno+'                                     Date: '+new Date().toISOString().slice(0, 10));
@@ -256,7 +256,7 @@
           var updatetamilname=$('#utname'+updateid).val();
           console.log(updatename,updateamount,updatetamilname);
           $.ajax({
-            url:"ajax_update.php",
+            url:"ajax_update_2.php",
             type:"post",
             // headers: {"Accepts": " application/json; text/plain; charset=utf-8"},
             data:{
@@ -315,7 +315,7 @@
           var updatetamilname=$('#u1tname'+updateid).val();
           console.log(updatename,updateamount,updatetamilname);
           $.ajax({
-            url:"ajax_update.php",
+            url:"ajax_update_2.php",
             type:"post",
             // headers: {"Accepts": " application/json; text/plain; charset=utf-8"},
             data:{
@@ -374,7 +374,7 @@
           var updatetamilname=$('#u2tname'+updateid).val();
           console.log(updatename,updateamount,updatetamilname);
           $.ajax({
-            url:"ajax_update.php",
+            url:"ajax_update_2.php",
             type:"post",
             // headers: {"Accepts": " application/json; text/plain; charset=utf-8"},
             data:{
@@ -433,7 +433,7 @@
           var updatetamilname=$('#u3tname'+updateid).val();
           console.log(updatename,updateamount,updatetamilname);
           $.ajax({
-            url:"ajax_update.php",
+            url:"ajax_update_2.php",
             type:"post",
             // headers: {"Accepts": " application/json; text/plain; charset=utf-8"},
             data:{
@@ -492,7 +492,7 @@
           var updatetamilname=$('#u4tname'+updateid).val();
           console.log(updatename,updateamount,updatetamilname);
           $.ajax({
-            url:"ajax_update.php",
+            url:"ajax_update_2.php",
             type:"post",
             // headers: {"Accepts": " application/json; text/plain; charset=utf-8"},
             data:{
@@ -650,7 +650,7 @@
     //     // console.log("bill");
         
     //     $.ajax({
-    //       url:"ajax_content.php",
+    //       url:"ajax_content_2.php",
     //       type:"post",
     //       data:{
     //         itemsname:itemsname,

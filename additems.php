@@ -51,9 +51,8 @@
                 More
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button" onclick="window.location.href='shop1.php'">Shop 1</button>
-                <button class="dropdown-item" type="button" onclick="window.location.href='updateitems1.php'">Updation</button>
-                <button class="dropdown-item" type="button" onclick="window.location.href='receiptreport1.php'">Receipt History</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='home.php'">Home</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='removeitems.php'">Remove items</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='logout.php'">Log Out</button>
             </div>
             </div>

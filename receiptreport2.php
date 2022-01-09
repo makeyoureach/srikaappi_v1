@@ -43,7 +43,7 @@
         <nav class="navbar navbar_custom shadow-lg">
             <a class="navbar-brand" href="#">
           <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
-            <h3>SRI KAAPPI 1</h3><h5 style="margin-left: 10px;">Shop 1</h5>
+            <h3>SRI KAAPPI</h3><h5 style="margin-left: 10px;">Branch 2</h5>
             </a>
                 
             <div class="btn-group dropleft">
@@ -53,11 +53,10 @@
                  ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button" onclick="window.location.href='shop1.php'">Shop 1</button>
-
-                <button class="dropdown-item" type="button" onclick="window.location.href='updateitems1.php'">Updation</button>
-                <button class="dropdown-item" type="button" onclick="window.location.href='bitesrecords1.php'">Bites Page</button>
-                <button class="dropdown-item" type="button" onclick="window.location.href='view1.php'">Sales Report</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='shop2.php'">Branch 2</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='updateitems2.php'">Updation</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='bitesrecords2.php'">Bites Page</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='view2.php'">Sales Report</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='logout.php'">Log Out</button>
             </div>
             </div>
@@ -98,6 +97,9 @@
                                 <div class="col-auto">
                                     <button type="submit" class="btn btn-warning mb-2" onclick="reset()">Reset</button>
                                 </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-success mb-2" id="whatsapp">Download</button>
+                                </div>
                                 </div>
                             </form>
                             
@@ -106,7 +108,7 @@
                             
                         </div>
                         <div class="table-responsive-md">
-                    <table class="table recepit-table">
+                    <table class="table recepit-table" id="dataTable">
                         <thead class="receipt_thead1">
                             <tr>
                             <th scope="col">S.No</th>
@@ -167,6 +169,9 @@
             </div>
         </section>
     </body>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script>
         function reset(event){
                event.preventDefault();
@@ -206,5 +211,19 @@
             $("#emptydate").html("Please select the from and to date");
         }
       });
+        $("body").on("click", "#whatsapp", function () {
+            html2canvas($('#dataTable')[0], {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("Reciept_"+new Date($.now())+".pdf");
+                }
+            });
+        });
     </script>
 </html>

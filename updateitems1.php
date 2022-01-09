@@ -44,7 +44,7 @@
             <nav class="navbar navbar_custom shadow-lg">
             <a class="navbar-brand" href="#">
           <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
-            <h3>SRI KAAPPI 1</h3><h5 style="margin-left: 10px;">Shop 1</h5>
+            <h3>SRI KAAPPI</h3><h5 style="margin-left: 10px;">Branch 1</h5>
             </a>
                 
             <div class="btn-group dropleft">
@@ -54,7 +54,7 @@
                  ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button" onclick="window.location.href='shop1.php'">Shop 1</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='shop1.php'">Branch 1</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='bitesrecords1.php'">Bites Page</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='view1.php'">Sales Report</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='receiptreport1.php'">Receipt History</button>

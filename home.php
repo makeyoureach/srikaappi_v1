@@ -49,9 +49,14 @@
             </a>
             <div>
             <div class="btn-group dropleft">
-            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle more-btn" onclick="window.location.href='logout.php'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Log Out
+            <button type="button" style="text-transform: capitalize;" class="btn btn-secondary btn-sm dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
             </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <a class="dropdown-item" style="color: black;"  href='additems.php'>Add items</a>
+                <a class="dropdown-item"  style="color: black;"  href='removeitems.php'>Remove items</a>
+                <a class="dropdown-item"  style="color: black;" href='logout.php'>Logout</a>
+            </div>
             </div>
                
             </div>
@@ -62,7 +67,7 @@
         <div class="col-sm-4 col-10" style="margin:10px;">
             <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Shop 1</h3>
+                <h3 class="card-title">Branch 1</h3>
                 <p class="card-text">..</p>
                 <a href="#" class="btn btn-info" id='home-shop1'>Go >></a>
             </div>
@@ -71,7 +76,7 @@
         <div class="col-sm-4 col-10" style="margin:10px;">
             <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Shop 2</h3>
+                <h3 class="card-title">Branch 2</h3>
                 <p class="card-text">...</p>
                 <a href="#" class="btn btn-info" id='home-shop2'>Go >></a>
             </div>

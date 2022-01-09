@@ -18,7 +18,7 @@
         $totalamount=$row["totalamount"];
         $tamilname=$row["tamilname"];
 
-        $sql11 = "insert into nonbeverages_1 (itemsname,amount,buyquantity,sellquantity,totalamount,tamilname) values ('$itemsname',$amount,$buyquantity,$sellquantity,$totalamount,'$tamilname')";
+        $sql11 = "";
         $result1 = mysqli_query($con, $sql11);
         //    $billno=$row["billnumber"];
         //    $billno++;

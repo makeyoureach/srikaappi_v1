@@ -1,16 +1,15 @@
 <?php
-    session_start();
-    // $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
-    // if(!$con){
-    //     die("Connection error ".mysqli_connect_error()); 
-    // }
-    // $sql = "TRUNCATE TABLE sri_beverages";
-    // $result=mysqli_query($con,$sql);
-    if(isset($_SESSION['uname'])){
-        // echo "<a"
-    }else{
-        echo "<script>location.href='login.php'</script>";
-    }
+   session_start();
+   if(isset($_SESSION['uname'])){
+       if($_SESSION['uname']=='admin'){
+
+       }else{
+           echo "<script>location.href='shop1.php'</script>";
+       }
+       // echo "<a"
+   }else{
+       echo "<script>location.href='login.php'</script>";
+   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +44,7 @@
         <nav class="navbar navbar_custom shadow-lg">
             <a class="navbar-brand" href="#">
           <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
-            <h3>SRI KAAPPI</h3><h5 style="margin-left: 10px;">Shop 1</h5>
+            <h3>SRI KAAPPI</h3><h5 style="margin-left: 10px;">Branch 1</h5>
             </a>
             <div>
             <div class="btn-group dropleft">
@@ -53,7 +52,7 @@
                 More
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button" onclick="window.location.href='shop1.php'">Shop 1</button>
+                <button class="dropdown-item" type="button" onclick="window.location.href='shop1.php'">Branch 1</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='updateitems1.php'">Updation</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='receiptreport1.php'">Receipt History</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='logout.php'">Log Out</button>

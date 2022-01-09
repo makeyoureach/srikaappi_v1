@@ -35,7 +35,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
-<script src='script2.js'></script>   
+<script src='script.js'></script>   
     <script src='jquery.min.js'></script>   
     
 <title>Sri Kaappi</title>
@@ -47,9 +47,9 @@
         <nav class="navbar navbar_custom shadow-lg">
             <a class="navbar-brand" href="#">
           <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
-            <h3>SRI KAAPPI 1</h3><h5 style="margin-left: 10px;">Shop 2</h5>
+            <h3>SRI KAAPPI</h3><h5 style="margin-left: 10px;">Branch 2</h5>
             </a>
-                
+                 
             <div class="btn-group dropleft">
             <button type="button" style="text-transform: capitalize;" class="btn btn-secondary btn-sm dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?php
@@ -110,6 +110,7 @@
                             $beveragesName=array();
                             $beveragesAmount=array();
                             $tamilName=array();
+                            $image=array();
                             $c=0;
 
                             $sql="select * from beverages_1";
@@ -119,6 +120,7 @@
                                 $beveragesName[$c]=$row["itemsname"];
                                 $beveragesAmount[$c]=$row["amount"];
                                 $tamilName[$c]=$row["tamilname"];
+                                $image[$c]=$row["image"];
                                 $c++;
                             }
 
@@ -128,7 +130,7 @@
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
                                 <div class=''>
-                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/beverage/".$index.".jpg' class='card-img-top'></a>
+                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/beverage/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                      <input type='hidden' id='selectfrom' value='beverages' />
                                      <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
@@ -161,6 +163,7 @@
                             $beveragesName=array();
                             $beveragesAmount=array();
                             $tamilName=array();
+                            $image=array();
                             $c=0;
 
                             $sql="select * from nonbeverages_1";
@@ -170,6 +173,7 @@
                                 $beveragesName[$c]=$row["itemsname"];
                                 $beveragesAmount[$c]=$row["amount"];
                                 $tamilName[$c]=$row["tamilname"];
+                                $image[$c]=$row["image"];
                                 $c++;
                             }
 
@@ -179,7 +183,7 @@
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
                                 <div class='card_image'>
-                                <a type='button' class='pic-btn' id='card-pic'><img src='items/withoutmilk/".$index.".jpg' class='card-img-top'></a>
+                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/withoutmilk/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                  <input type='hidden' id='selectfrom' value='nonbeverages' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
@@ -213,6 +217,7 @@
                             $beveragesName=array();
                             $beveragesAmount=array();
                             $tamilName=array();
+                            $image=array();
                             $c=0;
 
                             $sql="select * from bites_1";
@@ -222,6 +227,7 @@
                                 $beveragesName[$c]=$row["itemsname"];
                                 $beveragesAmount[$c]=$row["amount"];
                                 $tamilName[$c]=$row["tamilname"];
+                                $image[$c]=$row["image"];
                                 $c++;
                             }
 
@@ -231,7 +237,7 @@
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
                                 <div class='card_image'>
-                                <a type='button' class='pic-btn shadow' id='card-pic'><img src='items/bites/".$index.".jpg' class='card-img-top'></a>
+                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/bites/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                  <input type='hidden' id='selectfrom' value='bites' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
@@ -264,6 +270,7 @@
                             $beveragesName=array();
                             $beveragesAmount=array();
                             $tamilName=array();
+                            $image=array();
                             $c=0;
 
                             $sql="select * from juices_1";
@@ -273,6 +280,7 @@
                                 $beveragesName[$c]=$row["itemsname"];
                                 $beveragesAmount[$c]=$row["amount"];
                                 $tamilName[$c]=$row["tamilname"];
+                                $image[$c]=$row["image"];
                                 $c++;
                             }
 
@@ -283,7 +291,7 @@
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
                                 <div class='card_image'>
-                                <a type='button' class='pic-btn' id='card-pic'><img src='items/juices/".$index.".jpg' class='card-img-top'></a>
+                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/juices/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                  <input type='hidden' id='selectfrom' value='juices' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
@@ -316,6 +324,7 @@
                             $beveragesName=array();
                             $beveragesAmount=array();
                             $tamilName=array();
+                            $image=array();
                             $c=0;
 
                             $sql="select * from parcel_1";
@@ -325,6 +334,7 @@
                                 $beveragesName[$c]=$row["itemsname"];
                                 $beveragesAmount[$c]=$row["amount"];
                                 $tamilName[$c]=$row["tamilname"];
+                                $image[$c]=$row["image"];
                                 $c++;
                             }
 
@@ -335,7 +345,7 @@
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
                                 <div class='card_image'>
-                                <a type='button' class='pic-btn' id='card-pic'><img src='items/parcel/".$index.".jpg' class='card-img-top'></a>
+                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/parcel/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                  <input type='hidden' id='selectfrom' value='parcel' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />

@@ -62,7 +62,7 @@
         doc.setFontSize(10);
         doc.text(18,21,'THE ROYAL TASTE OF KOVAI');
         doc.setFontSize(9);
-        doc.text(3,28,'118 RAJA STREET, KK PLAK, COIMBATORE 641001');
+        doc.text(2,28,'307, KAMARAJAR ROAD, RAMANUJA NAGAR CBE-15');
         doc.setFontSize(9);
         doc.text(37,35,'CASH BILL');
         doc.text(8,40,'Bill no: '+billno+'                                     Date: '+new Date().toISOString().slice(0, 10));
@@ -120,9 +120,7 @@
         
 
         // doc.autoTable(col1, rows1, { startY: 60 });
-        doc.save('Test.pdf');
-      
-        doc.save('Generated.pdf');
+        doc.save('bill'+billno+'.pdf');
         doc.autoPrint();
         window.open(doc.output('bloburl'), '_blank');
             }else{

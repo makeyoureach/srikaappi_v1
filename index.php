@@ -1,7 +1,8 @@
 <?php
    echo "<script>location.href='login.php'</script>";
 
-   $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+   require_once "dbConfig.php";
+   
    if(!$con){
       die("Connection error ".mysqli_connect_error());
    }
@@ -23,7 +24,7 @@
    echo $currentDate;
    echo $date;
    
-   if($currentDate==$date){
+   if($currentDate<=$date){
       $datetime = new DateTime('tomorrow');
       $tmwDate=$datetime->format('Y-m-d');
       echo $tmwDate;

@@ -2,6 +2,9 @@
  
     $output;
     $msg = "Failed";
+
+    require_once "dbConfig.php";
+    
     if(isset($_POST['id']) && isset($_POST['type'])){
             
         $id=$_POST['id'];
@@ -10,7 +13,6 @@
         // print_r($id);
         // print_r($type);
         
-        $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
         if(!$con){
             die("Connection error ".mysqli_connect_error());
         }

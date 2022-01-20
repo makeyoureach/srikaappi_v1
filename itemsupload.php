@@ -2,8 +2,9 @@
 
     // Include the database configuration file  
  
-    $conn=mysqli_connect('34.93.221.231','root','root123','srikaappi');
-    if(!$conn){
+    require_once "dbConfig.php";
+
+    if(!$con){
         die("Connection error ".mysqli_connect_error());
     }
     
@@ -20,7 +21,7 @@
         // $add_image=$_POST['image'];
                               
         $sql = "SELECT id FROM $itemtype ORDER BY id DESC LIMIT 1";
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($con, $sql);
         $lastid=0;
         if (mysqli_num_rows($result) > 0) {
 
@@ -33,15 +34,15 @@
         $Get_image_name = $_FILES['image']['name'];
         
         // image Path
-        $image_Path = "items/beverage/".basename($Get_image_name);
+        $image_Path = "items/$itemtype/".basename($Get_image_name);
         // $sql="UPDATE beverages set image = '$Get_image_name' where id=20";
 
         if(move_uploaded_file($_FILES['image']['tmp_name'], $image_Path)){
             $sql="Insert into $itemtype (id,itemsname,amount,buyquantity,sellquantity,totalamount,tamilname,image) values($lastid,'$add_item_name',$add_amount,0,0,0,'$add_tamil_name','$Get_image_name')";
-            if (mysqli_query($conn, $sql)) {
+            if (mysqli_query($con, $sql)) {
                 $table=$itemtype.'_1';
                 $sql="Insert into $table (id,itemsname,amount,buyquantity,sellquantity,totalamount,tamilname,image) values($lastid,'$add_item_name',$add_amount,0,0,0,'$add_tamil_name','$Get_image_name')";
-                if (mysqli_query($conn, $sql)) {
+                if (mysqli_query($con, $sql)) {
                     
                     echo "Your item has added successfully";
                 }else{

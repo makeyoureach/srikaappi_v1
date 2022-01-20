@@ -215,7 +215,7 @@
       //   var id=$(this).attr('id');
       //   var value=$(this).attr('value');
         
-      //   console.log(id,value);
+      //   // console.log(id,value);
       //   if(itemsQuantity[id-1]>1){
       //      itemsQuantity[id-1]=itemsQuantity[id-1]-1;
       //      subIconTrigger(id-1);
@@ -253,7 +253,7 @@
           var updatename=$('#uname'+updateid).val();
           var updateamount=$('#uamount'+updateid).val();
           var updatetamilname=$('#utname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update_2.php",
             type:"post",
@@ -312,7 +312,7 @@
           var updatename=$('#u1name'+updateid).val();
           var updateamount=$('#u1amount'+updateid).val();
           var updatetamilname=$('#u1tname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update_2.php",
             type:"post",
@@ -371,7 +371,7 @@
           var updatename=$('#u2name'+updateid).val();
           var updateamount=$('#u2amount'+updateid).val();
           var updatetamilname=$('#u2tname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update_2.php",
             type:"post",
@@ -430,7 +430,7 @@
           var updatename=$('#u3name'+updateid).val();
           var updateamount=$('#u3amount'+updateid).val();
           var updatetamilname=$('#u3tname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update_2.php",
             type:"post",
@@ -489,7 +489,7 @@
           var updatename=$('#u4name'+updateid).val();
           var updateamount=$('#u4amount'+updateid).val();
           var updatetamilname=$('#u4tname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update_2.php",
             type:"post",
@@ -575,7 +575,7 @@
         var amt=$(this).closest("div").find("input[id='beverageAmount']").val();
         var itemfrom=$(this).closest("div").find("input[id='selectfrom']").val();
 
-        console.log(itemfrom);
+        // console.log(itemfrom);
         id++;
         
         var qty=1;
@@ -596,7 +596,7 @@
         }else{
           plusIconTrigger(repeat);
         }
-        console.log(itemsname);
+        // console.log(itemsname);
         
         billTableCreation();
         totalAmountCalculation();
@@ -646,7 +646,7 @@
 
     //   $("#print_bill").click(function(){
         
-    //     // console.log("bill");
+    //     // // console.log("bill");
         
     //     $.ajax({
     //       url:"ajax_content_2.php",

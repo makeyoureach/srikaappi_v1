@@ -139,7 +139,7 @@
                <tbody id='viewtable1'>
                    <?php
 
-                       $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                       require_once "dbConfig.php";
                        if(!$con){
                            die("Connection error ".mysqli_connect_error());
                        }
@@ -203,7 +203,7 @@
 
                             $sql="Insert into currentmonthsales (items,quantity,amount) values('$displayItemsName[$c]','$displayQuantity[$c]','$displayAmount[$c]')";
                             $result = mysqli_query($con, $sql);
-                       }
+                       } 
 
                        $displayItemsName=array();
                        $displayQuantity=array();

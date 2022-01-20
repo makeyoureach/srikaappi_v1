@@ -2,6 +2,8 @@
 <?php
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");
+
+    require_once "dbConfig.php";
     $output='ss';
     $message='';
     $total= 0;
@@ -21,7 +23,6 @@
         // print_r($updateamount);
         // print_r($updatetamilname);
 
-        $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
         if(!$con){
             die("Connection error ".mysqli_connect_error());
         }

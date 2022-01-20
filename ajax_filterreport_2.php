@@ -1,11 +1,13 @@
 <?php
-
+    
+    require_once "dbConfig.php";
+    
     $output='';
     $from=$_POST['datefrom'];
     $to=$_POST['dateto'];
     $check=$_POST['check'];
     $total=0;
-
+      
     // if($from<$to){
         $output='Invalid Date';
 
@@ -16,7 +18,6 @@
                 $to=$_POST['dateto'];
             }
             
-            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
             
             if(!$con){
                 die("Connection error ".mysqli_connect_error());

@@ -1,6 +1,7 @@
 <?php
         $billno=0;
-        $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+        require_once "dbConfig.php";
+        
         if(!$con){
             die("Connection error ".mysqli_connect_error());
         }

@@ -1,5 +1,6 @@
 <?php
 
+    require_once "dbConfig.php";
     $uname=$_POST['username'];
     $pwd=$_POST['password'];
     
@@ -9,7 +10,6 @@
         echo "<script>location.href='home.php'</script>";
     }else{
         $count=0;
-        $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
         if(!$con){
                 die("Connection error ".mysqli_connect_error());
             }

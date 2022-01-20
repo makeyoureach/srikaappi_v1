@@ -1,7 +1,8 @@
 <?php
     require('fpdf184/fpdf.php');
 
-    $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+    require_once "dbConfig.php";
+    
     $bill= 0;
     if(!$con){
         die("Connection error ".mysqli_connect_error());
@@ -86,7 +87,6 @@
     
     $pdf->Line(1,43,56,43);
 
-    $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
     if(!$con){
         die("Connection error ".mysqli_connect_error());
     }

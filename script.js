@@ -252,7 +252,7 @@
           var updatename=$('#uname'+updateid).val();
           var updateamount=$('#uamount'+updateid).val();
           var updatetamilname=$('#utname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update.php",
             type:"post",
@@ -311,7 +311,7 @@
           var updatename=$('#u1name'+updateid).val();
           var updateamount=$('#u1amount'+updateid).val();
           var updatetamilname=$('#u1tname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update.php",
             type:"post",
@@ -370,7 +370,7 @@
           var updatename=$('#u2name'+updateid).val();
           var updateamount=$('#u2amount'+updateid).val();
           var updatetamilname=$('#u2tname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update.php",
             type:"post",
@@ -429,7 +429,7 @@
           var updatename=$('#u3name'+updateid).val();
           var updateamount=$('#u3amount'+updateid).val();
           var updatetamilname=$('#u3tname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update.php",
             type:"post",
@@ -488,7 +488,7 @@
           var updatename=$('#u4name'+updateid).val();
           var updateamount=$('#u4amount'+updateid).val();
           var updatetamilname=$('#u4tname'+updateid).val();
-          console.log(updatename,updateamount,updatetamilname);
+          // console.log(updatename,updateamount,updatetamilname);
           $.ajax({
             url:"ajax_update.php",
             type:"post",
@@ -574,7 +574,7 @@
         var amt=$(this).closest("div").find("input[id='beverageAmount']").val();
         var itemfrom=$(this).closest("div").find("input[id='selectfrom']").val();
 
-        console.log(itemfrom);
+        // console.log(itemfrom);
         id++;
         
         var qty=1;
@@ -583,6 +583,7 @@
           if(name==itemsname[i]){
              itemsQuantity[i]=itemsQuantity[i]+1;
              repeat=i;
+            //  console.log("for loop "+itemsQuantity[i])
           }
         }
         
@@ -591,11 +592,12 @@
           itemsAmount[index]=amt;
           itemsQuantity[index]=qty;
           itemsFrom[index]=itemfrom;
+          // console.log("repeat "+itemsQuantity[index])
           index++;
         }else{
           plusIconTrigger(repeat);
         }
-        console.log(itemsname);
+        // console.log(itemsname);
         
         billTableCreation();
         totalAmountCalculation();

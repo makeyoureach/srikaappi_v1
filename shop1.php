@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+    // require_once "dbConfig.php";
     // if(!$con){
     //     die("Connection error ".mysqli_connect_error()); 
     // }
@@ -35,8 +35,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
-<script src='script.js'></script>   
-    <script src='jquery.min.js'></script>   
+<script src='script.js'></script>    
     
 <title>Sri Kaappi</title>
 
@@ -57,6 +56,7 @@
                  ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button" onclick="window.location.href='home.php'">Home</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='updateitems1.php'">Updation</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='bitesrecords1.php'">Bites Page</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='view1.php'">Sales Report</button>
@@ -102,7 +102,8 @@
                             // பால்');
                             // $beveragesAmount=array(20,10,15,25,20,20,20,15,20,20,20,25,30,30);
 
-                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            require_once "dbConfig.php";
+                            
                             if(!$con){
                                 die("Connection error ".mysqli_connect_error());
                             }
@@ -116,7 +117,6 @@
                             $sql="select * from beverages";
                             $res=$con->query($sql);
                             while($row=$res->fetch_assoc()){
-
                                 $beveragesName[$c]=$row["itemsname"];
                                 $beveragesAmount[$c]=$row["amount"];
                                 $tamilName[$c]=$row["tamilname"];
@@ -130,7 +130,7 @@
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
                                 <div class=''>
-                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/beverage/$image[$c]' class='card-img-top' /></a>
+                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/beverages/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                      <input type='hidden' id='selectfrom' value='beverages' />
                                      <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
@@ -155,7 +155,8 @@
                             // $beveragesAmount=array(15,10,15,25,20,20,20,20);
                             // $tamilName=array('ஃபில்டர் காபி','டீ','இஞ்சி டீ','சுக்கு காபி','சுக்கு டீ','ஹனி லெமன் டீ','இஞ்சி லெமன் டீ','கிரீன் டீ');
                             
-                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            require_once "dbConfig.php";
+
                             if(!$con){
                                 die("Connection error ".mysqli_connect_error());
                             }
@@ -182,8 +183,8 @@
                             for($c = 0; $c < count($beveragesName); $c++)
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
-                                <div class='card_image'>
-                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/withoutmilk/$image[$c]' class='card-img-top' /></a>
+                                <div class=''>
+                                <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/nonbeverages/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                  <input type='hidden' id='selectfrom' value='nonbeverages' />
                                  <input type='hidden' id='beverageAmount' value='".$beveragesAmount[$c]."' />
@@ -209,7 +210,8 @@
                             // $beveragesAmount=array(5,10,8,8,8,8,10,10,10,10,12,12,10,10,15,15,15,15,15,15,20,20,20,15,20,20,20,20,20,20,25,30,30);
                             // $tamilName=array('பிஸ்கட்','ஆனியன் சமோசா','உளுந்து வடை','பருப்பு வடை','உருளைக்கிழங்கு போண்டா','பஜ்ஜி','கீரை வடை','வாழைப்பூ வடை','பழம் பொரி','சுய்யம்','தேங்காய் உருண்டை','காரக் கொழுக்கட்டை','தட்டு வடை','கப்ப போண்டா','பக்கோடா','கப்பக்கிழங்கு ஃப்ரை','முளைக்கட்டிய ராகி','முளைக்கட்டிய கம்பு','நிலக்கடலை','சுண்டல்','முளைகட்டிய சுண்டல்','முளைகட்டிய பச்சை   பயறு','இனிப்பு கொழுக்கட்டை','இலை அடை','பால் கொழுக்கட்டை','பால் கோவா','சாம்பார் வடை','சாம்பார் வடை','தயிர் வடை','ரசவடை','காரப்பணியாரம்','இனிப்புப் பணியாரம்','சீம்பால்');
                             
-                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            require_once "dbConfig.php";
+
                             if(!$con){
                                 die("Connection error ".mysqli_connect_error());
                             }
@@ -236,7 +238,7 @@
                             for($c = 0; $c < count($beveragesName); $c++)
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
-                                <div class='card_image'>
+                                <div class=''>
                                 <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/bites/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                  <input type='hidden' id='selectfrom' value='bites' />
@@ -262,7 +264,8 @@
                             // $beveragesName=array('Ice Apple Milk','Avil Milk','Red Guava','Italian Grape','ABC Juice','Dates Milk','Rose Milk','Lassi');
                             // $beveragesAmount=array(40,40,40,40,40,40,35,30);
 
-                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            require_once "dbConfig.php";
+
                             if(!$con){
                                 die("Connection error ".mysqli_connect_error());
                             }
@@ -290,7 +293,7 @@
                             for($c = 0; $c < count($beveragesName); $c++)
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
-                                <div class='card_image'>
+                                <div class=''>
                                 <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/juices/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                  <input type='hidden' id='selectfrom' value='juices' />
@@ -316,7 +319,8 @@
                             // $beveragesName=array('Filter Coffee','Tea','Ginger Tea','Sukku Coffee','Sukku Tea','Milk','Honey Milk','Ginger Milk','Sukku Milk','Gulkand Milk','Kova Milk','Palam Candy Milk','Honey Lemon Tea','Ginger Lemon Tea','Green Tea','Kappa Fry','Green Gram Sprouted','Channa Sprouted','Peanet','Channa','Finger Millet Sprouted','Bajra Sprouted','Navadhaniya Sundal','Sambar Vadai','Curd Vadi','Rasa Vadi','Coconut Sprouted','Kara Paniyaram','Sweet Paniyaram','Fore Milk');
                             // $beveragesAmount=array(25,15,20,30,25,15,25,25,25,30,35,35,25,25,20,20,25,25,20,20,20,20,25,25,25,25,50,30,35,35);
                             
-                            $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
+                            require_once "dbConfig.php";
+
                             if(!$con){
                                 die("Connection error ".mysqli_connect_error());
                             }
@@ -344,7 +348,7 @@
                             for($c = 0; $c < count($beveragesName); $c++)
 	                        {
                                 echo "<div class='card card-custom shadow rounded'>
-                                <div class='card_image'>
+                                <div class=''>
                                 <a type='button' class='pic-btn card_image' id='card-pic'><img src='items/parcel/$image[$c]' class='card-img-top' /></a>
                                  <div>
                                  <input type='hidden' id='selectfrom' value='parcel' />

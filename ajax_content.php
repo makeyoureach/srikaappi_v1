@@ -1,5 +1,7 @@
 <?php
- 
+    
+    require_once "dbConfig.php";
+    
     $output='ss';
     $message='';
     $total= 0;
@@ -19,7 +21,6 @@
         // print_r($itemsQuantity);
         // print_r($itemsFrom);
         
-        $con=mysqli_connect('34.93.221.231','root','root123','srikaappi');
         if(!$con){
             die("Connection error ".mysqli_connect_error());
         }

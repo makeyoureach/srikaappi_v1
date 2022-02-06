@@ -2,11 +2,10 @@
     session_start();
     if(isset($_SESSION['uname'])){
         if($_SESSION['uname']=='admin'){
-
+           
         }else{
             echo "<script>location.href='shop1.php'</script>";
         }
-        // echo "<a"
     }else{
         echo "<script>location.href='login.php'</script>";
     }

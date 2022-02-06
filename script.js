@@ -39,6 +39,8 @@
           dataType:"JSON",
           success:function(res){
             if(res){
+
+              $("#new_bill").trigger("click");
               var billno=res+1;
               var now = new Date(Date.now());
         var AMPM = now.getHours() >= 12 ? 'PM' : 'AM';

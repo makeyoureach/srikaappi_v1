@@ -1,13 +1,12 @@
 <?php
     session_start();
-    // require_once "dbConfig.php";
-    // if(!$con){
-    //     die("Connection error ".mysqli_connect_error()); 
-    // }
-    // $sql = "TRUNCATE TABLE sri_beverages";
-    // $result=mysqli_query($con,$sql);
+    
     if(isset($_SESSION['uname'])){
-        // echo "<a"
+        if($_SESSION['uname']=='admin' || $_SESSION['uname']=='branch2'){
+           
+        }else{
+            echo "<script>location.href='login.php'</script>";
+        }
     }else{
         echo "<script>location.href='login.php'</script>";
     }
@@ -38,7 +37,7 @@
 <script src='script2.js'></script>   
     
 <title>Sri Kaappi</title>
-
+ 
 </head>
 <body>
     <section class="main-container">

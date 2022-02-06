@@ -52,6 +52,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <button class="dropdown-item" type="button" onclick="window.location.href='home.php'">Home</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='removeitems.php'">Remove items</button>
+                <a class="dropdown-item"  style="color: black;"  href='adminlogin.php'>Credential</a>
                 <button class="dropdown-item" type="button" onclick="window.location.href='logout.php'">Log Out</button>
             </div>
             </div>

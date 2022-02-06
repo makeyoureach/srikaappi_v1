@@ -1,13 +1,12 @@
 <?php
     session_start();
-    // require_once "dbConfig.php";
-    // if(!$con){
-    //     die("Connection error ".mysqli_connect_error()); 
-    // }
-    // $sql = "TRUNCATE TABLE sri_beverages";
-    // $result=mysqli_query($con,$sql);
+
     if(isset($_SESSION['uname'])){
-        // echo "<a"
+        if($_SESSION['uname']=='admin'){
+            
+        }else{
+            echo "<script>location.href='login.php'</script>";
+        }
     }else{
         echo "<script>location.href='login.php'</script>";
     }
@@ -54,6 +53,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" style="color: black;"  href='additems.php'>Add items</a>
                 <a class="dropdown-item"  style="color: black;"  href='removeitems.php'>Remove items</a>
+                <a class="dropdown-item"  style="color: black;"  href='adminlogin.php'>Credential</a>
                 <a class="dropdown-item"  style="color: black;" href='logout.php'>Logout</a>
             </div>
             </div>

@@ -1,12 +1,13 @@
 <?php
-    session_start();
-    if(isset($_SESSION['uname'])){
-        // if($_SESSION['uname']=='admin'){
 
-        // }else{
-        //     echo "<script>location.href='shop1.php'</script>";
-        // }
-        // // echo "<a"
+    session_start();
+
+    if(isset($_SESSION['uname'])){
+        if($_SESSION['uname']=='admin' || $_SESSION['uname']=='branch2'){
+           
+        }else{
+            echo "<script>location.href='login.php'</script>";
+        }
     }else{
         echo "<script>location.href='login.php'</script>";
     }
@@ -105,7 +106,7 @@
                             <th scope='col'>Sell Quantity</th>
                             <th scope='col'>Buying Amount</th>
                             <th scope='col'>Update</th>
-                            </tr>
+                            </tr> 
                         </thead>
                         <tbody id='update_table'>
                             <?php

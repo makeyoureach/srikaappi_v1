@@ -42,7 +42,7 @@
         <nav class="navbar navbar_custom shadow-lg">
             <a class="navbar-brand" href="#">
           <img src="./photos/logopng.png" width="40" class="d-inline-block align-top logo" alt="" />
-            <h3>SRI KAAPPI</h3><h5 style="margin-left: 10px;">Shop 1</h5>
+            <h3>SRI KAAPPI</h3>
             </a>
             <div>
             <div class="btn-group dropleft">
@@ -52,6 +52,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <button class="dropdown-item" type="button" onclick="window.location.href='home.php'">Home</button>
                 <button class="dropdown-item" type="button" onclick="window.location.href='additems.php'">Add items</button>
+                <a class="dropdown-item"  style="color: black;"  href='adminlogin.php'>Credential</a>
                 <button class="dropdown-item" type="button" onclick="window.location.href='logout.php'">Log Out</button>
             </div>
             </div>

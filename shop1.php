@@ -1,20 +1,20 @@
 <?php
+
     session_start();
-    // require_once "dbConfig.php";
-    // if(!$con){
-    //     die("Connection error ".mysqli_connect_error()); 
-    // }
-    // $sql = "TRUNCATE TABLE sri_beverages";
-    // $result=mysqli_query($con,$sql);
+
     if(isset($_SESSION['uname'])){
-        // echo "<a"
+        if($_SESSION['uname']=='admin' || $_SESSION['uname']=='branch1'){
+            
+        }else{
+            echo "<script>location.href='login.php'</script>";
+        }
     }else{
         echo "<script>location.href='login.php'</script>";
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"> 
+<head> 
 <meta charset="UTF-8">
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

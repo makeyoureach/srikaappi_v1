@@ -14,7 +14,7 @@
             while($row = mysqli_fetch_assoc($result)) {
                 $billno=$row["billnumber"];
             }
-            
+             
         }
 
         echo $billno;

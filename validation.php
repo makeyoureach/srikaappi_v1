@@ -22,8 +22,17 @@
             }
         }
         if($count==1){
-            $_SESSION['uname']=$uname;
-            echo "<script>location.href='home.php'</script>";
+            
+            $_SESSION['uname']=$uname; 
+
+            if($uname=='branch1'){
+                echo "<script>location.href='shop1.php'</script>";
+            }else if($uname=='branch2'){
+                echo "<script>location.href='shop2.php'</script>";
+            }else if($uname=='admin'){
+                echo "<script>location.href='home.php'</script>";
+            }
+            
         }else{
             echo "<script>location.href='login.php'</script>";
         }

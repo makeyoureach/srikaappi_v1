@@ -1,15 +1,14 @@
 <?php
    session_start();
-   if(isset($_SESSION['uname'])){
-       if($_SESSION['uname']=='admin'){
-
-       }else{
-           echo "<script>location.href='shop1.php'</script>";
-       }
-       // echo "<a"
-   }else{
-       echo "<script>location.href='login.php'</script>";
-   }
+    if(isset($_SESSION['uname'])){
+        if($_SESSION['uname']=='admin'){
+            
+        }else{
+            echo "<script>location.href='shop1.php'</script>";
+        }
+    }else{
+        echo "<script>location.href='login.php'</script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -189,7 +188,7 @@
                            $amt=0;
 
                            for($k = 0; $k < count($itemsName); $k++){
-
+ 
                                if($beveragesName[$c]==$itemsName[$k]){
                                       $qty=(int)$qty+(int)($itemsQuantity[$k]);
                                       $amt=(int)$amt+(int)$itemsAmount[$k];

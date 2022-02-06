@@ -1,16 +1,16 @@
 <?php
     session_start();
     if(isset($_SESSION['uname'])){
-        // if($_SESSION['uname']=='admin'){
-
-        // }else{
-        //     echo "<script>location.href='shop1.php'</script>";
-        // }
-        // // echo "<a"
+        if($_SESSION['uname']=='admin' || $_SESSION['uname']=='branch1'){
+            
+        }else{
+            echo "<script>location.href='login.php'</script>";
+        }
     }else{
         echo "<script>location.href='login.php'</script>";
     }
-?>
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,7 +127,7 @@
 
                                     $beveragesName[$c]=$row["itemsname"];
                                     $beveragesAmount[$c]=$row["amount"];
-                                    $buyquantity[$c]=$row["buyquantity"];
+                                    $buyquantity[$c]=$row["buyquantity"]-$row["sellquantity"];
                                     $sellquantity[$c]=$row["sellquantity"];
                                     $c++;
                                 }
@@ -162,7 +162,7 @@
                 </div>
                 </div>
             </div>
-            </div> -->
+            </div> --> 
                 
         </section>
         

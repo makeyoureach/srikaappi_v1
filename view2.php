@@ -1,12 +1,12 @@
 <?php
     session_start();
+    
     if(isset($_SESSION['uname'])){
         if($_SESSION['uname']=='admin'){
-
+           
         }else{
             echo "<script>location.href='shop2.php'</script>";
         }
-        // echo "<a"
     }else{
         echo "<script>location.href='login.php'</script>";
     }
@@ -117,7 +117,7 @@
                                        <?php
                                        $no=(int)date("d");
                                        $output='';
-                                       echo $no;
+                                       echo $no; 
                                     //    $count=0;
                                          for($i=1;$i<$no;$i++){
                                              $output.="<option class='viewdb' id=$i value=$i>$i</option>";

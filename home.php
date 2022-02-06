@@ -5,7 +5,12 @@
         if($_SESSION['uname']=='admin'){
             
         }else{
-            echo "<script>location.href='login.php'</script>";
+            if($_SESSION['uname']=='branch1'){
+                echo "<script>location.href='shop1.php'</script>";
+            }
+            if($_SESSION['uname']=='branch2'){
+                echo "<script>location.href='shop2.php'</script>";
+            }
         }
     }else{
         echo "<script>location.href='login.php'</script>";
